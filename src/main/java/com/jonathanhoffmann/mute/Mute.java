@@ -4,6 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.sound.SoundCategory;
@@ -25,7 +26,10 @@ public class Mute implements ClientModInitializer {
 
         KeyBindingHelper.registerKeyBinding(keyBinding);
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (keyBinding.wasPressed()) {
+            if (keyBinding.wasPressed()) {
+                //GameOptions opt = MinecraftClient.getInstance().options;
+                //opt.getSoundVolume(SoundCategory.MASTER);
+                //mc.options.set
 
                 if(mc.options.getSoundVolume(SoundCategory.MASTER)>0) {
                     MinecraftClient.getInstance().options.setSoundVolume(SoundCategory.MASTER, 0);
