@@ -1,34 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "mute",
-  "version": "1.0.0",
-
+  "id": "mutehotkey",
+  "version": "2.0",
   "name": "MuteHotkey",
-  "description": "Mutes and unmutes the game. Default hotkey: m",
-  "authors": [
-    "jonathanhoffmann"
-  ],
+  "description": "Lets you mute and unmute the game with a hotkey.",
+  "authors": ["Jonnyfant"],
   "contact": {
-    "sources": "https://github.com/JonathanHoffmann/FabricMuteHotkey"
+    "homepage": "https://curseforge.com/minecraft/mc-mods/mutehotkey-fabric",
+    "sources": "https://github.com/JonathanHoffmann/FabricMuteHotkey",
+    "issues": "https://github.com/JonathanHoffmann/FabricMuteHotkey/issues"
   },
-
   "license": "MIT",
   "icon": "assets/mute/icon.png",
-
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.jonathanhoffmann.mute.Mute"
+      "me.jonnyfant.mutehotkey.client.MuteHotkeyClient"
+    ],
+    "main": [
+      "me.jonnyfant.mutehotkey.MuteHotkey"
     ]
   },
-
-
   "depends": {
-    "fabricloader": ">=0.13.3",
+    "fabricloader": ">=0.14.21",
     "fabric": "*",
-    "minecraft": "1.18.2"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "minecraft": ">=1.20"
   }
 }

@@ -1,4 +1,13 @@
 {
-    "key.mute.mute": "Toggle mute",
-    "category.mute.mute": "mute"
+    "key.mute.mute10": "Toggle mute/10%",
+    "key.mute.mute20": "Toggle mute/20%",
+    "key.mute.mute30": "Toggle mute/30%",
+    "key.mute.mute40": "Toggle mute/40%",
+    "key.mute.mute50": "Toggle mute/50%",
+    "key.mute.mute60": "Toggle mute/60%",
+    "key.mute.mute70": "Toggle mute/70%",
+    "key.mute.mute80": "Toggle mute/80%",
+    "key.mute.mute90": "Toggle mute/90%",
+    "key.mute.mute100": "Toggle mute/100%",
+    "category.mute.mute": "Mute"
 }
