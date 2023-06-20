@@ -12,6 +12,14 @@ import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
 public class MuteHotkeyClient implements ClientModInitializer {
+    // volume icon unicode copy paste zone
+    // 🔇 strikethrough
+    // 🔈 speaker
+    // 🔉 speaker middle volume
+    // 🔊 speaker full volume
+    // 🔇 🔈 🔉 🔊
+    //https://www.compart.com/en/unicode/block/U+1F300
+    //https://www.compart.com/en/unicode/U+1F507
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 
     /**
@@ -36,10 +44,19 @@ public class MuteHotkeyClient implements ClientModInitializer {
                     SimpleOption volume = mc.options.getSoundVolumeOption(SoundCategory.MASTER);
                     if ((double) volume.getValue() > 0d) {
                         volume.setValue(0d);
-                        client.player.sendMessage(Text.of("Volume off"));
+                        client.player.sendMessage(Text.of("\uD83D\uDD07 Volume off"));
                     } else {
                         volume.setValue((double) finalI / 100);
-                        client.player.sendMessage(Text.of("Volume " + finalI + "%"));
+                        String icon;
+                        if (finalI == 100)
+                        {
+                            icon = "\uD83D\uDD0A";
+                        }
+                        else
+                        {
+                            icon = "\uD83D\uDD09";
+                        }
+                        client.player.sendMessage(Text.of(icon + " Volume " + finalI + "%"));
                     }
                 }
             });
