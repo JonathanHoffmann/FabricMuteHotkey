@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "mutehotkey",
-  "version": "2.0",
+  "version": "${mod_version}",
   "name": "MuteHotkey",
   "description": "Lets you mute and unmute the game with a hotkey.",
   "authors": ["Jonnyfant"],

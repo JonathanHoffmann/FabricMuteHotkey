@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Gradle Build",
+            "type": "shell",
+            "command": "./gradlew build",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Gradle Build + Deploy",
+            "type": "shell",
+            "command": "./gradlew build; cp $(ls -dtr1 'build/libs'/* | tail -1) ../. ",
+            "group": {
+                "kind": "build"
+            }
+        }
+    ]
+}
