@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 }
 
 repositories {
@@ -11,11 +11,9 @@ repositories {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	//modCompile "net.fabricmc.fabric-api:fabric-api:" + project.fabric_version
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
 base {
@@ -29,6 +27,15 @@ base {
 }
 
 loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		mutehotkey {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
 	//accessWidenerPath = file("src/main/resources/itemscroller.accesswidener")
 
 //	def commonVmArgs = ['-Dmixin.debug.export=true', '-Dmixin.debug.countInjections=true']
@@ -67,8 +74,7 @@ tasks.withType(JavaCompile).configureEach {
 	// If Javadoc is generated, this must be specified in that task too.
 	it.options.encoding = "UTF-8"
 
-	// Minecraft 24w14a (1.20.5) upwards uses Java 21.
-	it.options.release = 21
+	it.options.release = 25
 }
 
 tasks.withType(AbstractArchiveTask).configureEach {
@@ -77,8 +83,8 @@ tasks.withType(AbstractArchiveTask).configureEach {
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {

@@ -12,7 +12,7 @@
         {
             "label": "Gradle Build + Deploy",
             "type": "shell",
-            "command": "./gradlew build; cp $(ls -dtr1 'build/libs'/* | tail -1) ../. ",
+            "command": "./gradlew build; cp $(ls -dtr1 'build/libs'/* | tail -1) ~/.minecraft/mods/. ",
             "group": {
                 "kind": "build"
             }
